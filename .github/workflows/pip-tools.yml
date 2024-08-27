@@ -134,13 +134,13 @@ jobs:
       uses: actions/setup-python@v5
       with:
         cache: pip
-        cache-dependency-path: requirements/**
+        cache-dependency-path: dependencies/**
         python-version: ${{ matrix.python-version }}
 
     - name: Identify tox's own lock file
       id: tox-deps
       run: >
-        LOCK_FILE_PATH="requirements/lock-files/$(
+        LOCK_FILE_PATH="dependencies/lock-files/$(
         python bin/print_lockfile_base_name.py tox
         ).txt"
 
@@ -154,7 +154,7 @@ jobs:
 
     - name: Install tox
       run: >-
-        python -Im pip install -r requirements/direct/tox-tox.in
+        python -Im pip install -r dependencies/direct/tox-tox.in
         ${{
           steps.tox-deps.outputs.lock-file
           && format('--constraint={0}', steps.tox-deps.outputs.lock-file)
@@ -195,9 +195,9 @@ jobs:
           matrix.lock-file-env
         }})
 
-        git add "requirements/lock-files/${LOCK_BASE_NAME}.txt"
+        git add "dependencies/lock-files/${LOCK_BASE_NAME}.txt"
 
-        git commit "requirements/lock-files/${LOCK_BASE_NAME}.txt" \
+        git commit "dependencies/lock-files/${LOCK_BASE_NAME}.txt" \
           -m "Update ${LOCK_BASE_NAME} constraints${{
           (
           github.event_name == 'workflow_dispatch'

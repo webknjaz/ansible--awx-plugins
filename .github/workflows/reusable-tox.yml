@@ -228,7 +228,7 @@ jobs:
     - name: Identify tox's own lock file
       id: tox-deps
       run: >
-        LOCK_FILE_PATH="requirements/lock-files/$(
+        LOCK_FILE_PATH="dependencies/lock-files/$(
         python bin/print_lockfile_base_name.py tox
         ).txt"
 
@@ -242,7 +242,7 @@ jobs:
 
     - name: Install tox
       run: >-
-        python -Im pip install -r requirements/direct/tox-tox.in
+        python -Im pip install -r dependencies/direct/tox-tox.in
         ${{
           steps.tox-deps.outputs.lock-file
           && format('--constraint={0}', steps.tox-deps.outputs.lock-file)
