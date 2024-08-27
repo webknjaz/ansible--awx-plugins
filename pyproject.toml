@@ -19,6 +19,29 @@ dependencies = [  # runtime deps  # https://packaging.python.org/en/latest/guide
   # GUIDANCE: only set lower version bounds
   # "awx_plugins.base_interface.api",  # keep `__init__.py` empty
 ]
+classifiers = [  # Allowlist: https://pypi.org/classifiers/
+  "Development Status :: 1 - Planning",
+
+  "Environment :: Web Environment",
+
+  "Framework :: Ansible",
+
+  "Intended Audience :: System Administrators",
+
+  "License :: OSI Approved :: Apache Software License",
+
+  "Operating System :: POSIX :: Linux",
+
+  "Programming Language :: Python :: 3",
+  # It's usually a good idea to list runtimes present in CI:
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+
+  "Topic :: System :: Systems Administration",
+
+  "Typing :: Typed",
+]
 dynamic = [
   "version",  # let `setuptools-scm` populate this
 ]
@@ -30,17 +53,6 @@ requires-python = ">= 3.11"  # must be set from the very first release
 
 [[project.authors]]
 name = "Ansible maintainers and contributors"
-
-[project.classifiers]
-"License :: OSI Approved :: Apache Software License"
-
-"Operating System :: OS Independent"
-
-"Programming Language :: Python :: 3"
-# It's usually a good idea to list runtimes present in CI:
-"Programming Language :: Python :: 3.11"
-"Programming Language :: Python :: 3.12"
-"Programming Language :: Python :: 3.13"
 
 # Example entry point declarations:
 # * https://github.com/ansible/awx/blob/cb2ad41/setup.cfg#L16-L25
@@ -59,6 +71,13 @@ x = "awx_plugins.credentials.x.api:XPlugin"
 [project.entry-points."awx.credential_plugins"]  # pre-existing entry points group name
 x = "awx_plugins.credentials.x.api:XPlugin"
 # conjur = awx.main.credential_plugins.conjur:conjur_plugin
+
+[project.license]
+file = "LICENSE"
+
+# [[project.maintainers]]  # if differs from authors
+# name = ""
+# email = "@"
 
 # [project.optional-dependencies]
 # # These are additional runtime dependencies used as feature-flags.
