@@ -29,7 +29,7 @@ def generate_lock_for(
     direct_deps_file_name = (
         lock_file_name.parents[1]
         / 'direct'
-        / f'tox-{toxenv}.in'
+        / f'{toxenv}.in'
     )
     pip_compile_cmd = (
         sys.executable, '-Im', 'piptools', 'compile',

@@ -65,7 +65,7 @@ def get_constraint_file_path(  # noqa: WPS210 -- no way to drop vars
         sys_platform = 'linux'
 
     constraint_name = (
-        f'tox-{toxenv}-{python_tag}-{sys_platform}-{platform_machine}'
+        f'{toxenv}-{python_tag}-{sys_platform}-{platform_machine}'
     )
     return (pathlib.Path(req_dir) / constraint_name).with_suffix('.txt')
 

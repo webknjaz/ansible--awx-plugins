@@ -467,7 +467,7 @@ jobs:
 
     - name: Install tox
       run: >-
-        python -Im pip install -r dependencies/direct/tox-tox.in
+        python -Im pip install -r dependencies/direct/tox.in
         ${{
           steps.tox-deps.outputs.lock-file
           && format('--constraint={0}', steps.tox-deps.outputs.lock-file)
