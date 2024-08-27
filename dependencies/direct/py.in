@@ -1,4 +1,4 @@
--c tox-py-constraints.in  # limits known broken versions
+-c py-constraints.in  # limits known broken versions
 
 covdefaults
 coverage  # accessed directly from tox
