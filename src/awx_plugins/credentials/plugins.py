@@ -592,13 +592,13 @@ insights = ManagedCredentialType(
                 'id': 'password', 'label': gettext_noop('Password'), 'type': 'string', 'secret': True,
             },
             {
-                'id': 'client_id', 'label': gettext_noop('Client_ID'), 'type': 'string',
+                'id': 'client_id', 'label': gettext_noop('Client ID'), 'type': 'string',
             },
             {
-                'id': 'client_secret', 'label': gettext_noop('Client_Secret'), 'type': 'string', 'secret': True,
+                'id': 'client_secret', 'label': gettext_noop('Client Secret'), 'type': 'string', 'secret': True,
             }
         ],
-        'required': ['username', 'password'],
+        'required': [],
     },
     injectors={
         'extra_vars': {
