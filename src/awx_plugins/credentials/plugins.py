@@ -591,6 +591,12 @@ insights = ManagedCredentialType(
             {
                 'id': 'password', 'label': gettext_noop('Password'), 'type': 'string', 'secret': True,
             },
+            {
+                'id': 'client_id', 'label': gettext_noop('Client_ID'), 'type': 'string',
+            },
+            {
+                'id': 'client_secret', 'label': gettext_noop('Client_Secret'), 'type': 'string', 'secret': True,
+            }
         ],
         'required': ['username', 'password'],
     },
@@ -598,10 +604,15 @@ insights = ManagedCredentialType(
         'extra_vars': {
             'scm_username': '{{username}}',
             'scm_password': '{{password}}',
+            'client_id': '{{client_id}}',
+            'client_secret': '{{client_secret}}',
+            'authentication': '{% if client_id %}service_account{% else %}basic{% endif %}',
         },
         'env': {
             'INSIGHTS_USER': '{{username}}',
             'INSIGHTS_PASSWORD': '{{password}}',
+            'INSIGHTS_CLIENT_ID': '{{client_id}}',
+            'INSIGHTS_CLIENT_SECRET': '{{client_secret}}',
         },
     },
 )
