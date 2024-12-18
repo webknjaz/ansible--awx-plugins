@@ -83,9 +83,9 @@ controller = "awx_plugins.credentials.plugins:controller"
 kubernetes_bearer_token = "awx_plugins.credentials.plugins:kubernetes_bearer_token"
 registry = "awx_plugins.credentials.plugins:registry"
 galaxy_api_token = "awx_plugins.credentials.plugins:galaxy_api_token"
+net = "awx_plugins.credentials.plugins:net"
 
 [project.entry-points."awx_plugins.managed_credentials.supported"]  # new entry points group name
-net = "awx_plugins.credentials.plugins:net"
 aws = "awx_plugins.credentials.plugins:aws"
 openstack = "awx_plugins.credentials.plugins:openstack"
 vmware = "awx_plugins.credentials.plugins:vmware"
