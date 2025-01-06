@@ -38,7 +38,7 @@ repos:
   - id: add-trailing-comma
 
 - repo: https://github.com/asottile/pyupgrade.git
-  rev: v3.17.0
+  rev: v3.19.1
   hooks:
   - id: pyupgrade
     args:
@@ -76,7 +76,7 @@ repos:
   - id: remove-tabs
 
 - repo: https://github.com/python-jsonschema/check-jsonschema.git
-  rev: 0.29.3
+  rev: 0.30.0
   hooks:
   - id: check-github-workflows
     files: ^\.github/workflows/[^/]+$
@@ -187,7 +187,7 @@ repos:
     language_version: python3
 
 - repo: https://github.com/pre-commit/mirrors-mypy.git
-  rev: v1.11.2
+  rev: v1.14.1
   hooks:
   - id: mypy
     alias: mypy-py313
@@ -284,7 +284,7 @@ repos:
     pass_filenames: false
 
 - repo: https://github.com/PyCQA/pylint.git
-  rev: v3.3.1
+  rev: v3.3.3
   hooks:
   - id: pylint
     additional_dependencies:
