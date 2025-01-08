@@ -586,16 +586,16 @@ insights = ManagedCredentialType(
     inputs={
         'fields': [
             {
-                'id': 'username', 'label': gettext_noop('Username'), 'type': 'string',
+                'id': 'username', 'label': gettext_noop('Username'), 'type': 'string', 'help_text': gettext_noop('Required for basic authentication'),
             },
             {
-                'id': 'password', 'label': gettext_noop('Password'), 'type': 'string', 'secret': True,
+                'id': 'password', 'label': gettext_noop('Password'), 'type': 'string', 'secret': True, 'help_text': gettext_noop('Required for basic authentication'),
             },
             {
-                'id': 'client_id', 'label': gettext_noop('Client ID'), 'type': 'string',
+                'id': 'client_id', 'label': gettext_noop('Client ID'), 'type': 'string', 'help_text': gettext_noop('Alternative to username and password. Required for service account authentication'),
             },
             {
-                'id': 'client_secret', 'label': gettext_noop('Client Secret'), 'type': 'string', 'secret': True,
+                'id': 'client_secret', 'label': gettext_noop('Client Secret'), 'type': 'string', 'secret': True, 'help_text': gettext_noop('Alternative to username and password. Required for service account authentication'),
             }
         ],
         'required': [],
