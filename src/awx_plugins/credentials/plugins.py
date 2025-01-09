@@ -578,44 +578,48 @@ bitbucket_dc_token = ManagedCredentialType(
     },
 )
 
-insights = ManagedCredentialType(
-    namespace='insights',
-    kind='insights',
-    name=gettext_noop('Insights'),
-    managed=True,
-    inputs={
-        'fields': [
-            {
-                'id': 'username', 'label': gettext_noop('Username'), 'type': 'string', 'help_text': gettext_noop('Required for basic authentication'),
-            },
-            {
-                'id': 'password', 'label': gettext_noop('Password'), 'type': 'string', 'secret': True, 'help_text': gettext_noop('Required for basic authentication'),
-            },
-            {
-                'id': 'client_id', 'label': gettext_noop('Client ID'), 'type': 'string', 'help_text': gettext_noop('Alternative to username and password. Required for service account authentication'),
-            },
-            {
-                'id': 'client_secret', 'label': gettext_noop('Client Secret'), 'type': 'string', 'secret': True, 'help_text': gettext_noop('Alternative to username and password. Required for service account authentication'),
-            }
-        ],
-        'required': [],
-    },
-    injectors={
-        'extra_vars': {
-            'scm_username': '{{username}}',
-            'scm_password': '{{password}}',
-            'client_id': '{{client_id}}',
-            'client_secret': '{{client_secret}}',
-            'authentication': '{% if client_id %}service_account{% else %}basic{% endif %}',
-        },
-        'env': {
-            'INSIGHTS_USER': '{{username}}',
-            'INSIGHTS_PASSWORD': '{{password}}',
-            'INSIGHTS_CLIENT_ID': '{{client_id}}',
-            'INSIGHTS_CLIENT_SECRET': '{{client_secret}}',
-        },
-    },
-)
+insights = ManagedCredentialType(namespace='insights',
+                                 kind='insights',
+                                 name=gettext_noop('Insights'),
+                                 managed=True,
+                                 inputs={'fields': [{'id': 'username',
+                                                     'label': gettext_noop('Username'),
+                                                     'type': 'string',
+                                                     'help_text': gettext_noop('Required for basic authentication'),
+                                                     },
+                                                    {'id': 'password',
+                                                     'label': gettext_noop('Password'),
+                                                     'type': 'string',
+                                                     'secret': True,
+                                                     'help_text': gettext_noop('Required for basic authentication'),
+                                                     },
+                                                    {'id': 'client_id',
+                                                     'label': gettext_noop('Client ID'),
+                                                     'type': 'string',
+                                                     'help_text': gettext_noop('Alternative to username and password. Required for service account authentication'),
+                                                     },
+                                                    {'id': 'client_secret',
+                                                     'label': gettext_noop('Client Secret'),
+                                                     'type': 'string',
+                                                     'secret': True,
+                                                     'help_text': gettext_noop('Alternative to username and password. Required for service account authentication'),
+                                                     },
+                                                    ],
+                                         'required': [],
+                                         },
+                                 injectors={'extra_vars': {'scm_username': '{{username}}',
+                                                           'scm_password': '{{password}}',
+                                                           'client_id': '{{client_id}}',
+                                                           'client_secret': '{{client_secret}}',
+                                                           'authentication': '{% if client_id %}service_account{% else %}basic{% endif %}',
+                                                           },
+                                            'env': {'INSIGHTS_USER': '{{username}}',
+                                                    'INSIGHTS_PASSWORD': '{{password}}',
+                                                    'INSIGHTS_CLIENT_ID': '{{client_id}}',
+                                                    'INSIGHTS_CLIENT_SECRET': '{{client_secret}}',
+                                                    },
+                                            },
+                                 )
 
 rhv = ManagedCredentialType(
     namespace='rhv',
