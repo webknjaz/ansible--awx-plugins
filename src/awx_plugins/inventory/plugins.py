@@ -433,6 +433,14 @@ class insights(PluginFileInjector):
     collection = 'insights'
     use_fqcn = True
 
+    def inventory_as_dict(self, inventory_update, private_data_dir):
+        inventory_data = super().inventory_as_dict(inventory_update, private_data_dir)
+        credential = inventory_update.get_cloud_credential()
+        if credential.get_input('client_id', default=''):
+            inventory_data['authentication'] = 'service_account'
+
+        return inventory_data
+
 
 class insights_supported(PluginFileInjector):
     plugin_name = 'insights'
@@ -441,6 +449,15 @@ class insights_supported(PluginFileInjector):
     namespace = 'redhat'
     collection = 'insights'
     use_fqcn = True
+
+    def inventory_as_dict(self, inventory_update, private_data_dir):
+        inventory_data = super().inventory_as_dict(inventory_update, private_data_dir)
+        credential = inventory_update.get_cloud_credential()
+        if credential.get_input('client_id', default=''):
+            inventory_data['authentication'] = 'service_account'
+
+        return inventory_data
+
 
 
 class openshift_virtualization(PluginFileInjector):
