@@ -459,7 +459,6 @@ class insights_supported(PluginFileInjector):
         return inventory_data
 
 
-
 class openshift_virtualization(PluginFileInjector):
     plugin_name = 'kubevirt'
     plugin_description = 'OpenShift Virtualization'
