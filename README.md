@@ -25,8 +25,10 @@ https://results.pre-commit.ci/latest/github/ansible/awx-plugins/devel
 [PyPI Supported Versions Badge]: https://img.shields.io/pypi/pyversions/awx-plugins-core.svg
 [PyPI Supported Versions]: https://pypi.org/p/awx-plugins-core
 
-[Codecov Badge]: https://codecov.io/gh/ansible/awx-plugins/branch/devel/graph/badge.svg
-[Codecov]: https://app.codecov.io/gh/ansible/awx-plugins
+[Codecov Badge]:
+https://codecov.io/gh/ansible/awx-plugins/branch/devel/graph/badge.svg?flag=pytest
+[Codecov]:
+https://app.codecov.io/gh/ansible/awx-plugins?flags[]=pytest
 
 [Code of Conduct Badge]: https://img.shields.io/badge/code%20of%20conduct-Ansible-yellow.svg
 [Code of Conduct]: https://docs.ansible.com/ansible/latest/community/code_of_conduct.html
